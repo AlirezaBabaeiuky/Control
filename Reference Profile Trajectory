@@ -2,3 +2,5 @@ To define profile trajectories for: Position, Velocity, and Acceleeration of  as
 there are multiple methods to generate such trajectories' profiles (built-in blocks in simulink, deriving the profiles from first-principles equations). 
 
 
+
+
