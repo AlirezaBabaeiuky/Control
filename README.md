@@ -45,6 +45,16 @@ To linearize the system using feedback linearization, follow these steps:
 1.	Define the Control Law: u = α(x) + β(x)v where (\alpha(x)) and (\beta(x)) are functions designed to cancel the nonlinearities, and (v) is the new control input for the linearized system.
 2.	Transform the System: Substitute the control law into the system equations: x˙=f(x)+g(x)(α(x)+β(x)v) Choose (\alpha(x)) and (\beta(x)) such that: f(x)+g(x)α(x) = 0 and g(x)β(x) = 1 This simplifies the system to: x˙ = v which is a linear system.  
 3.	Design Linear Controller: Design a linear controller (v) using traditional techniques to achieve the desired performance.
+![image](https://github.com/user-attachments/assets/c93f6044-7c6e-4506-9e4c-6a767e0192e0)
+the following is the simulations o fsuch a nonlinear control in terms of performance requirements:
+ ![image](https://github.com/user-attachments/assets/8466e8dd-5009-4b6c-9777-4d3c515fb571)
+LF control proves to be efficiently capable of handling nonlinearities in the plant.
+3- Sliding Mode Control (SMC):
+SMC is a type of Robust control algorithm that can be also used for nonlinear systems as a robust nonlinear control law. Main concept in SMC is to drive all states of the system towards a surface which is called: Switching / Sliding surface, which is a linear relationship between the states (this is the concept of linearization/linearizing in SMC). SMC is mainly focused to handle: un-modeled dynamics, uncertainties in the system. In contrast to adaptive control which in a real-time fashion changes its parameters and architecture, SMC is a static law but able to address slightly-varying plant dynamics. In SMC, there essentially 2 important steps: a- Reaching Law which drives the states towards the switching surface, and b- Main control law which ensures that states are staying around the switching surface. One challenge / drawback with SMC is: Chaterring which (physical interpretation: usually small-amplitude but high-frequency oscillations resulted from the jittering control signal around the switching / sliding surface). Small gains mitigates chattering but to the cost of non-robustness, strong gains handles robustness but results in chattering. 
+
+ 
+
+
 
 
 
