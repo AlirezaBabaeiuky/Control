@@ -59,6 +59,19 @@ SMC also shows perfect handling of the nonlinearities in the Reference Tracking 
 3- C_FBL-SMC:
 This is the novel type of controller at which a combination of the FeedBack Linearization and SMC is adopted. This is particularly feasile as FBL after canceling out the nonlinearities, allws for any type of controller to be implemented. 
 ![image](https://github.com/user-attachments/assets/5e07e708-e13f-4991-94e9-9fd2de458848)
+which shows the same results as like: SMC and FBL separately. 
+---
+Besides to studying the controllers' performance on the designed profile's Trajectories, step input is among the best excitations signals to assess the capabilites of a control signals. This is particularly good as the step has abrupt jump in value which can measure the fast-response metrics. Meaning that a decent controller needs to be fast in tracking the sudden jump in value and at the same time to be able to avoid the resulting maximum peak overshoot. 
+Agains simlple PID cannot even track the input yet alone difficulties in: very slow controlle rand terrible offset. 
+1- SMC: 
+![image](https://github.com/user-attachments/assets/53b15a7e-fe07-458d-962e-146db634a102)
+the above SMC is tuned with: lambda=1e2 and eta=2e5. (S=lambda*e_dot + e). Decreasing lambda usually leads to slightly slow system and smaller Mp. Smaller values in BL Thicknes will lead to more jitter / chattering. 
+below is the response using only FBL:
+![image](https://github.com/user-attachments/assets/29dfa24f-1df3-4c47-9549-771ad3be62f4)
+below is: Combinitation of SMC and FBL:
+![image](https://github.com/user-attachments/assets/33e16c84-90c4-4392-9ca2-7ca938655348)
+---
+This is good to note that tuning a controller is a widespread realm and can be done in various fields. One approach is trial-error till achiving a satisfactory level. Other method is to use: Optimization algorithms. (whic I have done and will post in other files).
 
 
 
