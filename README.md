@@ -47,10 +47,21 @@ To linearize the system using feedback linearization, follow these steps:
 3.	Design Linear Controller: Design a linear controller (v) using traditional techniques to achieve the desired performance.
 ![image](https://github.com/user-attachments/assets/c93f6044-7c6e-4506-9e4c-6a767e0192e0)
 the following is the simulations o fsuch a nonlinear control in terms of performance requirements:
- ![image](https://github.com/user-attachments/assets/8466e8dd-5009-4b6c-9777-4d3c515fb571)
+![image](https://github.com/user-attachments/assets/e9326255-03b3-4433-abfe-12d575feec17)
 LF control proves to be efficiently capable of handling nonlinearities in the plant.
+
 3- Sliding Mode Control (SMC):
-SMC is a type of Robust control algorithm that can be also used for nonlinear systems as a robust nonlinear control law. Main concept in SMC is to drive all states of the system towards a surface which is called: Switching / Sliding surface, which is a linear relationship between the states (this is the concept of linearization/linearizing in SMC). SMC is mainly focused to handle: un-modeled dynamics, uncertainties in the system. In contrast to adaptive control which in a real-time fashion changes its parameters and architecture, SMC is a static law but able to address slightly-varying plant dynamics. In SMC, there essentially 2 important steps: a- Reaching Law which drives the states towards the switching surface, and b- Main control law which ensures that states are staying around the switching surface. One challenge / drawback with SMC is: Chaterring which (physical interpretation: usually small-amplitude but high-frequency oscillations resulted from the jittering control signal around the switching / sliding surface). Small gains mitigates chattering but to the cost of non-robustness, strong gains handles robustness but results in chattering. 
+SMC is a type of Robust control algorithm that can be also used for nonlinear systems as a robust nonlinear control law. Main concept in SMC is to drive all states of the system towards a surface which is called: Switching / Sliding surface, which is a linear relationship between the states (this is the concept of linearization/linearizing in SMC). SMC is mainly focused to handle: un-modeled dynamics, uncertainties in the system. In contrast to adaptive control which in a real-time fashion changes its parameters and architecture, SMC is a static law but able to address slightly-varying plant dynamics. In SMC, there essentially 2 important steps: a- Reaching Law which drives the states towards the switching surface, and b- Main control law which ensures that states are staying around the switching surface. One challenge / drawback with SMC is: Chaterring which (physical interpretation: usually small-amplitude but high-frequency oscillations resulted from the jittering control signal around the switching / sliding surface). Small gains mitigates chattering but to the cost of non-robustness, strong gains handles robustness but results in chattering. A decent solution to this trade-off is: Boundary Layer. BL is a layer with a specific thickness at which the control law is gentle with smaller gains inside the layer and stronger gains outside. One approach that I have used is: Saturation type of BL. 
+![image](https://github.com/user-attachments/assets/69ac8a9f-3a33-420e-b248-ba36126d091f)
+![image](https://github.com/user-attachments/assets/44f00b03-b5d5-4974-90c3-14c501f32dda)
+SMC also shows perfect handling of the nonlinearities in the Reference Tracking Control. 
+
+3- C_FBL-SMC:
+This is the novel type of controller at which a combination of the FeedBack Linearization and SMC is adopted. This is particularly feasile as FBL after canceling out the nonlinearities, allws for any type of controller to be implemented. 
+![image](https://github.com/user-attachments/assets/5e07e708-e13f-4991-94e9-9fd2de458848)
+
+
+
 
  
 
